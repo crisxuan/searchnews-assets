@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1320" width="1200" height="1320" role="img" aria-labelledby="title desc">
+  <title id="title">Ponytail 最小实现决策流程图</title>
+  <desc id="desc">从需求开始，依次判断是否需要存在、标准库、平台原生、已有依赖、一行代码，最后才写最少必要代码，并保留安全护栏。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#222222"/>
+    </marker>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1f2937" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="1320" fill="#fbfaf7"/>
+
+  <text x="600" y="62" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="34" font-weight="700" fill="#171717">Ponytail 最小实现决策流程</text>
+  <text x="600" y="104" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="18" fill="#525252">先问能不能不写，再问能不能少写，最后才写最少必要代码</text>
+
+  <rect x="475" y="132" width="250" height="72" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="2" filter="url(#softShadow)"/>
+  <text x="600" y="176" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="22" font-weight="700" fill="#172554">需求来了</text>
+
+  <path d="M600 204 L600 244" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M600 244 L752 316 L600 388 L448 316 Z" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="600" y="309" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="21" font-weight="700" fill="#3f2f05">
+      <tspan x="600" dy="0">这东西</tspan>
+      <tspan x="600" dy="28">需要存在吗？</tspan>
+    </text>
+  </g>
+
+  <rect x="110" y="280" width="230" height="72" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2" filter="url(#softShadow)"/>
+  <text x="225" y="309" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="20" font-weight="700" fill="#14532d">
+    <tspan x="225" dy="0">不需要</tspan>
+    <tspan x="225" dy="26">直接跳过</tspan>
+  </text>
+  <path d="M448 316 L340 316" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="390" y="300" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">否</text>
+
+  <path d="M600 388 L600 430" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="628" y="414" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">是</text>
+
+  <g filter="url(#softShadow)">
+    <path d="M600 430 L752 502 L600 574 L448 502 Z" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="600" y="495" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="21" font-weight="700" fill="#3f2f05">
+      <tspan x="600" dy="0">标准库</tspan>
+      <tspan x="600" dy="28">能搞定吗？</tspan>
+    </text>
+  </g>
+  <rect x="865" y="466" width="230" height="72" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="2" filter="url(#softShadow)"/>
+  <text x="980" y="495" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="20" font-weight="700" fill="#172554">
+    <tspan x="980" dy="0">用标准库</tspan>
+    <tspan x="980" dy="26">别重写</tspan>
+  </text>
+  <path d="M752 502 L865 502" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="808" y="486" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">能</text>
+
+  <path d="M600 574 L600 616" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="628" y="600" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">不能</text>
+
+  <g filter="url(#softShadow)">
+    <path d="M600 616 L752 688 L600 760 L448 688 Z" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="600" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="21" font-weight="700" fill="#3f2f05">
+      <tspan x="600" dy="0">平台原生功能</tspan>
+      <tspan x="600" dy="28">能搞定吗？</tspan>
+    </text>
+  </g>
+  <rect x="865" y="652" width="230" height="72" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="2" filter="url(#softShadow)"/>
+  <text x="980" y="681" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="20" font-weight="700" fill="#172554">
+    <tspan x="980" dy="0">用原生能力</tspan>
+    <tspan x="980" dy="26">别加依赖</tspan>
+  </text>
+  <path d="M752 688 L865 688" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="808" y="672" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">有</text>
+
+  <path d="M600 760 L600 802" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="628" y="786" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">没有</text>
+
+  <g filter="url(#softShadow)">
+    <path d="M600 802 L752 874 L600 946 L448 874 Z" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="600" y="866" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="20" font-weight="700" fill="#3f2f05">
+      <tspan x="600" dy="0">已有依赖</tspan>
+      <tspan x="600" dy="27">能搞定吗？</tspan>
+    </text>
+  </g>
+  <rect x="865" y="838" width="230" height="72" rx="16" fill="#dbeafe" stroke="#2563eb" stroke-width="2" filter="url(#softShadow)"/>
+  <text x="980" y="867" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="20" font-weight="700" fill="#172554">
+    <tspan x="980" dy="0">用已有依赖</tspan>
+    <tspan x="980" dy="26">别新增</tspan>
+  </text>
+  <path d="M752 874 L865 874" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="808" y="858" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">有</text>
+
+  <path d="M600 946 L600 988" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="628" y="972" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">没有</text>
+
+  <g filter="url(#softShadow)">
+    <path d="M600 988 L752 1060 L600 1132 L448 1060 Z" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="600" y="1053" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="21" font-weight="700" fill="#3f2f05">
+      <tspan x="600" dy="0">一行</tspan>
+      <tspan x="600" dy="28">能搞定吗？</tspan>
+    </text>
+  </g>
+
+  <rect x="865" y="1024" width="230" height="72" rx="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2" filter="url(#softShadow)"/>
+  <text x="980" y="1068" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="21" font-weight="700" fill="#14532d">就写一行</text>
+  <path d="M752 1060 L865 1060" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="808" y="1044" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">能</text>
+
+  <path d="M600 1132 L600 1178" stroke="#222222" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="628" y="1160" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="16" fill="#525252">不能</text>
+
+  <rect x="475" y="1178" width="250" height="72" rx="16" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#softShadow)"/>
+  <text x="600" y="1206" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="20" font-weight="700" fill="#0c4a6e">
+    <tspan x="600" dy="0">写最少量</tspan>
+    <tspan x="600" dy="26">必要代码</tspan>
+  </text>
+
+  <rect x="140" y="1182" width="300" height="74" rx="16" fill="#fee2e2" stroke="#dc2626" stroke-width="2" filter="url(#softShadow)"/>
+  <text x="290" y="1210" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC',sans-serif" font-size="17" font-weight="700" fill="#7f1d1d">
+    <tspan x="290" dy="0">永远不能省</tspan>
+    <tspan x="290" dy="24">安全、校验、可访问性、数据保护</tspan>
+  </text>
+</svg>
