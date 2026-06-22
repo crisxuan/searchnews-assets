@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 980" width="1200" height="980" role="img" aria-labelledby="title desc">
+  <title id="title">Ponytail safety benchmark 中文整理</title>
+  <desc id="desc">中文整理 Ponytail 官方 safety benchmark 的安全测试方法和结果，强调少写代码不能省掉安全护栏。</desc>
+  <defs>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#111827" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .font { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
+      .title { font-size: 32px; font-weight: 800; fill: #171717; }
+      .sub { font-size: 18px; fill: #525252; }
+      .h { font-size: 23px; font-weight: 800; fill: #7f1d1d; }
+      .t { font-size: 18px; fill: #262626; }
+      .small { font-size: 15px; fill: #525252; }
+      .th { font-size: 18px; font-weight: 800; fill: #172554; }
+      .td { font-size: 18px; fill: #262626; }
+      .strong { font-size: 18px; font-weight: 800; fill: #14532d; }
+      .bad { font-size: 18px; font-weight: 800; fill: #991b1b; }
+      .footer-main { font-size: 20px; font-weight: 800; fill: #ffffff; }
+      .footer-sub { font-size: 15px; fill: #d4d4d4; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="980" fill="#fbfaf7"/>
+  <text x="600" y="60" text-anchor="middle" class="font title">Ponytail 怎么证明少写不等于少安全</text>
+  <text x="600" y="98" text-anchor="middle" class="font sub">它专门加了 safety tasks，用对抗输入去跑生成出来的函数</text>
+
+  <rect x="70" y="136" width="500" height="230" rx="22" fill="#fee2e2" stroke="#dc2626" stroke-width="2" filter="url(#shadow)"/>
+  <text x="110" y="178" class="font h">安全任务怎么测</text>
+  <text x="110" y="222" class="font t">任务说明里不明说安全要求</text>
+  <text x="110" y="258" class="font t">让 Agent 按真实工单习惯自己处理边界</text>
+  <text x="110" y="294" class="font t">然后用对抗输入执行生成函数</text>
+  <text x="110" y="330" class="font small">测试方向：路径穿越、SQL 注入、伪造 token、异常 CSV、配额耗尽</text>
+
+  <rect x="630" y="136" width="500" height="230" rx="22" fill="#fef3c7" stroke="#d97706" stroke-width="2" filter="url(#shadow)"/>
+  <text x="670" y="178" class="font h">最关键的 safe-path 例子</text>
+  <text x="670" y="222" class="font t">场景：把不可信文件名</text>
+  <text x="670" y="252" class="font t">拼到基础目录</text>
+  <text x="670" y="282" class="font t">风险：../../ 这类路径逃逸</text>
+  <text x="670" y="314" class="font bad">one-liner prompt：最短，但 1 次不安全</text>
+  <text x="670" y="342" class="font strong">Ponytail：多约 3 行校验，4/4 安全</text>
+
+  <rect x="120" y="410" width="960" height="380" rx="22" fill="#ffffff" stroke="#d4d4d4" stroke-width="2" filter="url(#shadow)"/>
+  <text x="160" y="466" class="font h">安全通过率</text>
+
+  <rect x="160" y="500" width="880" height="48" fill="#dbeafe" stroke="#bfdbfe"/>
+  <text x="220" y="531" class="font th">方案</text>
+  <text x="510" y="531" text-anchor="middle" class="font th">安全通过率</text>
+  <text x="825" y="531" text-anchor="middle" class="font th">说明</text>
+
+  <rect x="160" y="548" width="880" height="48" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="220" y="579" class="font td">baseline</text>
+  <text x="510" y="579" text-anchor="middle" class="font strong">100%（20/20）</text>
+  <text x="825" y="579" text-anchor="middle" class="font td">不使用 skill</text>
+
+  <rect x="160" y="596" width="880" height="48" fill="#f8fafc" stroke="#e5e7eb"/>
+  <text x="220" y="627" class="font td">caveman</text>
+  <text x="510" y="627" text-anchor="middle" class="font strong">100%（20/20）</text>
+  <text x="825" y="627" text-anchor="middle" class="font td">短话风格控制组</text>
+
+  <rect x="160" y="644" width="880" height="48" fill="#ecfdf5" stroke="#bbf7d0"/>
+  <text x="220" y="675" class="font td">ponytail</text>
+  <text x="510" y="675" text-anchor="middle" class="font strong">100%（20/20）</text>
+  <text x="825" y="675" text-anchor="middle" class="font td">少写，但保留关键校验</text>
+
+  <rect x="160" y="692" width="880" height="48" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="220" y="723" class="font td">YAGNI one-liner</text>
+  <text x="510" y="723" text-anchor="middle" class="font bad">95%（19/20）</text>
+  <text x="825" y="723" text-anchor="middle" class="font td">有一次拆掉了护栏</text>
+
+  <rect x="170" y="830" width="860" height="92" rx="20" fill="#111827" filter="url(#shadow)"/>
+  <text x="600" y="862" text-anchor="middle" class="font footer-main">结论：少写代码不是代码高尔夫</text>
+  <text x="600" y="890" text-anchor="middle" class="font footer-main">安全、校验、可访问性不能省</text>
+  <text x="600" y="914" text-anchor="middle" class="font footer-sub">根据 Ponytail 官方 agentic benchmark 整理，非官方翻译图</text>
+</svg>

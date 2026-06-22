@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-labelledby="title desc">
+  <title id="title">Ponytail agentic benchmark 中文整理</title>
+  <desc id="desc">中文整理 Ponytail 官方 agentic benchmark 的测试设置，包括测试对象、对比组、隔离方式、统计指标和任务类型。</desc>
+  <defs>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#111827" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .font { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
+      .title { font-size: 32px; font-weight: 800; fill: #171717; }
+      .sub { font-size: 18px; fill: #525252; }
+      .h { font-size: 23px; font-weight: 800; fill: #172554; }
+      .t { font-size: 18px; fill: #262626; }
+      .muted { font-size: 16px; fill: #737373; }
+      .tag { font-size: 17px; font-weight: 700; fill: #1f2937; }
+      .small { font-size: 15px; fill: #525252; }
+      .footer-main { font-size: 17px; font-weight: 700; fill: #ffffff; }
+      .footer-sub { font-size: 16px; fill: #d4d4d4; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="900" fill="#fbfaf7"/>
+  <text x="600" y="60" text-anchor="middle" class="font title">Ponytail Benchmark 怎么测</text>
+  <text x="600" y="98" text-anchor="middle" class="font sub">不是单次补全，是让 Claude Code 真的改真实开源仓库</text>
+
+  <rect x="70" y="138" width="500" height="250" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="2" filter="url(#shadow)"/>
+  <text x="110" y="180" class="font h">测试对象</text>
+  <text x="110" y="224" class="font t">引擎：Claude Code 2.1.177</text>
+  <text x="110" y="260" class="font t">模式：headless，输出 JSON</text>
+  <text x="110" y="296" class="font t">模型：Haiku 4.5</text>
+  <text x="110" y="332" class="font t">仓库：full-stack-fastapi-template</text>
+  <text x="110" y="365" class="font small">FastAPI + React 真实项目，固定到 cd83fc1</text>
+
+  <rect x="630" y="138" width="500" height="250" rx="22" fill="#ecfccb" stroke="#65a30d" stroke-width="2" filter="url(#shadow)"/>
+  <text x="670" y="180" class="font h">四个对比组</text>
+  <text x="670" y="224" class="font t">baseline：不使用 skill</text>
+  <text x="670" y="260" class="font t">ponytail：加载真实 plugin</text>
+  <text x="670" y="296" class="font t">caveman：短话风格控制组</text>
+  <text x="670" y="332" class="font t">yagni-oneliner：只加一句</text>
+  <text x="670" y="365" class="font small">YAGNI + one-liner prompt，验证短 prompt 是否够用</text>
+
+  <rect x="70" y="430" width="500" height="250" rx="22" fill="#fef3c7" stroke="#d97706" stroke-width="2" filter="url(#shadow)"/>
+  <text x="110" y="472" class="font h">统计方式</text>
+  <text x="110" y="516" class="font t">每个任务、每个方案跑 4 次</text>
+  <text x="110" y="552" class="font t">每次都是新仓库副本 + 新 Agent 上下文</text>
+  <text x="110" y="588" class="font t">统计 Agent 留下的 git diff 新增行数</text>
+  <text x="110" y="624" class="font t">不统计聊天回答里的解释文字</text>
+  <text x="110" y="657" class="font small">避免“baseline 话多，所以显得 Ponytail 更省”的问题</text>
+
+  <rect x="630" y="430" width="500" height="250" rx="22" fill="#fce7f3" stroke="#db2777" stroke-width="2" filter="url(#shadow)"/>
+  <text x="670" y="472" class="font h">任务类型</text>
+  <text x="670" y="516" class="font t">12 个真实 feature ticket</text>
+  <text x="670" y="552" class="font t">重点看 Agent 会不会把小需求写大</text>
+  <text x="670" y="588" class="font t">另外加 6 个 safety task</text>
+  <text x="670" y="624" class="font t">重点看少写代码会不会拆掉安全护栏</text>
+  <text x="670" y="657" class="font small">所以这套测试比单次补全更接近真实 Coding Agent 场景</text>
+
+  <rect x="150" y="722" width="900" height="98" rx="20" fill="#111827" filter="url(#shadow)"/>
+  <text x="600" y="754" text-anchor="middle" class="font footer-main">核心变化：不再看“模型回答里有多少代码”</text>
+  <text x="600" y="782" text-anchor="middle" class="font footer-main">而是看真实 Agent 改完项目后留下多少 git diff</text>
+  <text x="600" y="810" text-anchor="middle" class="font footer-sub">根据 Ponytail 官方 agentic benchmark 整理，非官方翻译图</text>
+</svg>
