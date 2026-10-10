@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1012" viewBox="0 0 960 1012">
+<rect width="960" height="1012" rx="20" fill="#f7f8fa"/>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<text x="40" y="61" font-size="36" font-weight="650" fill="#202b36">Claude Code：从源码拆成六层</text>
+<text x="40" y="96" font-size="21" fill="#6c7680">按职责分类，数据分别进入推理、事件上报和配置通道</text>
+<rect x="32" y="124" width="896" height="104" rx="12" fill="white" stroke="#dce1e5"/>
+<rect x="32" y="124" width="7" height="104" rx="3" fill="#436b7b"/>
+<text x="58" y="160" font-size="25" font-weight="650" fill="#436b7b">01</text>
+<text x="109" y="160" font-size="27" font-weight="650" fill="#26333e">账号身份</text>
+<text x="109" y="190" font-size="21" fill="#46535e">OAuth / API Key · accountUuid · organizationUuid · 套餐</text>
+<text x="109" y="215" font-size="17" fill="#7d8790">auth.ts → oauth/client.ts → user.ts</text>
+<rect x="32" y="240" width="896" height="104" rx="12" fill="white" stroke="#dce1e5"/>
+<rect x="32" y="240" width="7" height="104" rx="3" fill="#487561"/>
+<text x="58" y="276" font-size="25" font-weight="650" fill="#487561">02</text>
+<text x="109" y="276" font-size="27" font-weight="650" fill="#26333e">安装实例与会话</text>
+<text x="109" y="306" font-size="21" fill="#46535e">userID → device_id · session_id · 请求 metadata.user_id</text>
+<text x="109" y="331" font-size="17" fill="#7d8790">config.ts → claude.ts / firstPartyEventLogger.ts</text>
+<rect x="32" y="356" width="896" height="104" rx="12" fill="white" stroke="#dce1e5"/>
+<rect x="32" y="356" width="7" height="104" rx="3" fill="#8b744c"/>
+<text x="58" y="392" font-size="25" font-weight="650" fill="#8b744c">03</text>
+<text x="109" y="392" font-size="27" font-weight="650" fill="#26333e">运行环境</text>
+<text x="109" y="422" font-size="21" fill="#46535e">平台 / 架构 / 终端 / 运行时 / CI / 仓库远程地址哈希</text>
+<text x="109" y="447" font-size="17" fill="#7d8790">metadata.ts: buildEnvContext() / getEventMetadata()</text>
+<rect x="32" y="472" width="896" height="104" rx="12" fill="white" stroke="#dce1e5"/>
+<rect x="32" y="472" width="7" height="104" rx="3" fill="#786489"/>
+<text x="58" y="508" font-size="25" font-weight="650" fill="#786489">04</text>
+<text x="109" y="508" font-size="27" font-weight="650" fill="#26333e">请求归因与校验</text>
+<text x="109" y="538" font-size="21" fill="#46535e">HTTP 请求头 · system 归因文本 · 短指纹 · 条件原生校验</text>
+<text x="109" y="563" font-size="17" fill="#7d8790">client.ts → fingerprint.ts → system.ts</text>
+<rect x="32" y="588" width="896" height="104" rx="12" fill="white" stroke="#dce1e5"/>
+<rect x="32" y="588" width="7" height="104" rx="3" fill="#9b6860"/>
+<text x="58" y="624" font-size="25" font-weight="650" fill="#9b6860">05</text>
+<text x="109" y="624" font-size="27" font-weight="650" fill="#26333e">行为与内容</text>
+<text x="109" y="654" font-size="21" fill="#46535e">模型消息 / 工具结果 · token / 耗时 / 成败事件</text>
+<text x="109" y="679" font-size="17" fill="#7d8790">logging.ts / toolExecution.ts → sink.ts → exporter</text>
+<rect x="32" y="704" width="896" height="104" rx="12" fill="white" stroke="#dce1e5"/>
+<rect x="32" y="704" width="7" height="104" rx="3" fill="#56698b"/>
+<text x="58" y="740" font-size="25" font-weight="650" fill="#56698b">06</text>
+<text x="109" y="740" font-size="27" font-weight="650" fill="#26333e">策略下发与处置</text>
+<text x="109" y="770" font-size="21" fill="#46535e">远程特性评估 / 请求开关 · 认证刷新 / 组织状态 / 错误</text>
+<text x="109" y="795" font-size="17" fill="#7d8790">growthbook.ts → claude.ts → withRetry.ts / errors.ts</text>
+<line x1="40" y1="846" x2="920" y2="846" stroke="#d4dce1"/>
+<text x="40" y="883" font-size="24" font-weight="650" fill="#26333e">三条通道</text>
+<text x="40" y="921" font-size="23" font-weight="600" fill="#375e6b">推理请求</text>
+<text x="40" y="949" font-size="17" fill="#5f6f7b">/v1/messages</text>
+<text x="40" y="977" font-size="19" fill="#5f6f7b">消息 + 归因 + 关联标识</text>
+<text x="340" y="921" font-size="23" font-weight="600" fill="#375e6b">事件上报</text>
+<text x="340" y="949" font-size="17" fill="#5f6f7b">/api/event_logging/batch</text>
+<text x="340" y="977" font-size="19" fill="#5f6f7b">身份 + 环境 + 行为事件</text>
+<text x="640" y="921" font-size="23" font-weight="600" fill="#375e6b">远程配置</text>
+<text x="640" y="949" font-size="17" fill="#5f6f7b">GrowthBook remoteEval</text>
+<text x="640" y="977" font-size="19" fill="#5f6f7b">用户属性 → 功能与策略配置</text>
+</g></svg>
